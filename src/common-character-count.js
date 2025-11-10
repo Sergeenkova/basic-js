@@ -14,11 +14,16 @@ const { NotImplementedError } = require('../lib');
 
 function getCommonCharacterCount(s1, s2) {
   let count = 0;
-  for(let i = 0; i < Math.min(s1.length, s2.length); i += 1) {
-    if (s1[i] === s2[1]) {
+  arr2 = s2.split('');
+
+  for (char of s1) {
+    const i = arr2.indexOf(char);
+    if (i != -1) {
       count += 1;
+      arr2.splice(i, 1)
     }
   }
+  return count;
 }
 
 module.exports = {
